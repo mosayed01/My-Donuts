@@ -1,4 +1,4 @@
-package com.mooncake.mydonuts.ui.theme
+package com.mooncake.mydonuts.presntation.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

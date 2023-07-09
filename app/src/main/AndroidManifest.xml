@@ -13,7 +13,7 @@
         android:theme="@style/Theme.MyDonuts"
         tools:targetApi="31">
         <activity
-            android:name="com.mooncake.mydonuts.ui.MainActivity"
+            android:name="com.mooncake.mydonuts.presntation.ui.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.MyDonuts">
             <intent-filter>

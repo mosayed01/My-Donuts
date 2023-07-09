@@ -1,4 +1,4 @@
-package com.mooncake.mydonuts.ui.theme
+package com.mooncake.mydonuts.presntation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -1,4 +1,4 @@
-package com.mooncake.mydonuts.composables
+package com.mooncake.mydonuts.presntation.composables
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
@@ -27,7 +27,7 @@ fun MarqueeBackground(
                 iterations = Int.MAX_VALUE,
                 initialDelayMillis = 0,
                 delayMillis = 0,
-                velocity = 100.dp,
+                velocity = 50.dp,
             )
     ) {
         Image(
