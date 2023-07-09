@@ -16,6 +16,8 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.systemuicontroller.SystemUiController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
@@ -67,7 +69,12 @@ fun MyDonutsTheme(
         }
     }
     val systemUiController = rememberSystemUiController()
-    CompositionLocalProvider(LocalSystemUiController provides systemUiController) {
+    val navController = rememberNavController()
+
+    CompositionLocalProvider(
+        LocalSystemUiController provides systemUiController,
+        LocalNavController provides navController
+    ) {
         MaterialTheme(
             colorScheme = colorScheme,
             typography = Typography,
@@ -77,3 +84,4 @@ fun MyDonutsTheme(
 }
 
 val LocalSystemUiController = compositionLocalOf<SystemUiController> { error("provide it first") }
+val LocalNavController = compositionLocalOf<NavController> { error("provide it first") }
