@@ -50,8 +50,8 @@ import com.mooncake.mydonuts.presntation.ui.theme.White
 
 @Composable
 fun DonutOfferItem(
-    onClick: (Donut) -> Unit,
-    onClickFavourite: (Boolean) -> Unit,
+    onClick: (Int) -> Unit,
+    onClickFavourite: (Int) -> Unit,
     donut: Donut,
     modifier: Modifier = Modifier,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
@@ -62,7 +62,7 @@ fun DonutOfferItem(
     Box(
         modifier = modifier
             .width(240.dp)
-            .clickable(interactionSource, null) { onClick(donut) }
+            .clickable(interactionSource, null) { onClick(donut.id) }
             .scale(scale)
     ) {
         Column(
@@ -81,7 +81,7 @@ fun DonutOfferItem(
                     modifier = Modifier
                         .clip(CircleShape)
                         .background(White)
-                        .clickable { onClickFavourite(it) }
+                        .clickable { onClickFavourite(donut.id) }
                         .padding(4.dp),
                 )
             }
