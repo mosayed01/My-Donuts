@@ -1,6 +1,7 @@
 package com.mooncake.mydonuts.presntation.screens.donuts_details
 
 import androidx.compose.animation.Crossfade
+import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -12,6 +13,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -68,6 +70,7 @@ fun DonutsDetailsScreenContent(
             tint = Pink,
             modifier = Modifier
                 .padding(start = 16.dp, top = 24.dp)
+                .clip(CircleShape)
                 .clickable { navigateBack() }
         )
         Image(
@@ -159,7 +162,7 @@ fun BottomSheetContent(
             Row(
                 horizontalArrangement = Arrangement.spacedBy(24.dp),
                 verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.padding(top = 24.dp, bottom = 16.dp)
+                modifier = Modifier.padding(top = 24.dp, bottom = 8.dp)
             ) {
                 Text(text = "£${state.totalPrice}", style = MaterialTheme.typography.headlineLarge)
                 ButtonHasText(
@@ -167,7 +170,7 @@ fun BottomSheetContent(
                     onClick = { /*TODO*/ },
                     containerColor = Pink,
                     textColor = White,
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth().animateContentSize()
                 )
             }
         }
