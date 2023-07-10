@@ -26,6 +26,7 @@ fun ButtonHasText(
     modifier: Modifier = Modifier,
     height: Dp = 60.dp,
     containerColor: Color = White,
+    textColor: Color = Black,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
 ) {
     val isPressed by interactionSource.collectIsPressedAsState()
@@ -40,7 +41,7 @@ fun ButtonHasText(
         Text(
             text = text,
             style = MaterialTheme.typography.titleLarge,
-            color = Black
+            color = textColor
         )
     }
 }

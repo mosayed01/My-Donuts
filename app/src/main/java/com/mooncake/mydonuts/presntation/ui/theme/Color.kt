@@ -9,6 +9,7 @@ val BlueLight = Color(0xFFD7E4F6)
 
 val White = Color(0xFFFFFFFF)
 val WhiteFC = Color(0xFFFCFCFC)
+val WhiteFE = Color(0xFFFEFEFE)
 val Black = Color(0xFF000000)
 val Black60 = Color(0x99000000)
 
