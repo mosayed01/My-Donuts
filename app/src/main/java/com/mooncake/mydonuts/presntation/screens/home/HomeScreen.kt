@@ -37,7 +37,6 @@ import com.mooncake.mydonuts.presntation.ui.theme.LocalSystemUiController
 import com.mooncake.mydonuts.presntation.ui.theme.MyDonutsTheme
 import com.mooncake.mydonuts.presntation.ui.theme.Pink
 import com.mooncake.mydonuts.presntation.ui.theme.PinkLight
-import com.mooncake.mydonuts.presntation.ui.theme.WhiteFC
 
 @Composable
 fun HomeScreen(viewModel: HomeViewModel = hiltViewModel()) {
