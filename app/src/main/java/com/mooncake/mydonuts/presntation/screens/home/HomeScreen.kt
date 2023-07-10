@@ -18,8 +18,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -32,6 +32,7 @@ import com.mooncake.mydonuts.presntation.screens.home.composables.DonutSmallItem
 import com.mooncake.mydonuts.presntation.ui.theme.Black
 import com.mooncake.mydonuts.presntation.ui.theme.Black60
 import com.mooncake.mydonuts.presntation.ui.theme.LocalNavController
+import com.mooncake.mydonuts.presntation.ui.theme.LocalSystemUiController
 import com.mooncake.mydonuts.presntation.ui.theme.MyDonutsTheme
 import com.mooncake.mydonuts.presntation.ui.theme.Pink
 import com.mooncake.mydonuts.presntation.ui.theme.PinkLight
@@ -39,6 +40,7 @@ import com.mooncake.mydonuts.presntation.ui.theme.WhiteFC
 
 @Composable
 fun HomeScreen(viewModel: HomeViewModel = hiltViewModel()) {
+    LocalSystemUiController.current.isSystemBarsVisible = true
     val navController = LocalNavController.current
     val state by viewModel.state.collectAsState()
     HomeScreenContent(navigateToDonutsDetails = {
@@ -105,6 +107,7 @@ private fun Header(modifier: Modifier = Modifier) {
     Row(
         modifier = modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
     ) {
         Column {
             Text(
@@ -121,10 +124,9 @@ private fun Header(modifier: Modifier = Modifier) {
             contentDescription = "Search",
             tint = Pink,
             modifier = Modifier
-                .padding(4.dp)
-                .size(45.dp)
-                .clip(RoundedCornerShape(15.dp))
-                .background(PinkLight)
+                .background(PinkLight, shape = RoundedCornerShape(15.dp))
+                .padding(8.dp)
+                .size(24.dp)
         )
     }
 }

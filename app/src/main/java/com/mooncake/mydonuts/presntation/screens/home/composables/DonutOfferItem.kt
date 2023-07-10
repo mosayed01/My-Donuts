@@ -41,7 +41,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mooncake.mydonuts.R
-import com.mooncake.mydonuts.presntation.screens.home.Donut
+import com.mooncake.mydonuts.presntation.screens.Donut
 import com.mooncake.mydonuts.presntation.ui.theme.Black
 import com.mooncake.mydonuts.presntation.ui.theme.Black60
 import com.mooncake.mydonuts.presntation.ui.theme.MyDonutsTheme

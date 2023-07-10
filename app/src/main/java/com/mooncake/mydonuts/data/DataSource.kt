@@ -1,7 +1,7 @@
 package com.mooncake.mydonuts.data
 
 import com.mooncake.mydonuts.R
-import com.mooncake.mydonuts.presntation.screens.home.Donut
+import com.mooncake.mydonuts.presntation.screens.Donut
 import com.mooncake.mydonuts.presntation.ui.theme.BlueLight
 import com.mooncake.mydonuts.presntation.ui.theme.PinkLight
 import javax.inject.Inject

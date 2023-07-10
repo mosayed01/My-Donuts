@@ -1,4 +1,4 @@
-package com.mooncake.mydonuts.presntation.screens.home
+package com.mooncake.mydonuts.presntation.screens
 
 import androidx.annotation.DrawableRes
 import androidx.compose.ui.graphics.Color
