@@ -1,8 +1,11 @@
 package com.mooncake.mydonuts.presntation.screens.home.composables
 
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -16,9 +19,12 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -35,8 +41,15 @@ fun DonutSmallItem(
     onClick: (Int) -> Unit,
     donut: Donut,
     modifier: Modifier = Modifier,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
 ) {
-    Box(modifier = modifier.height(150.dp).clickable { onClick(donut.id) }
+    val isPressed by interactionSource.collectIsPressedAsState()
+    val scale by animateFloatAsState(targetValue = if (isPressed) 0.85f else 1f)
+
+    Box(modifier = modifier
+        .height(150.dp)
+        .clickable(interactionSource, null) { onClick(donut.id) }
+        .scale(scale)
     ) {
         Column(
             modifier = Modifier
@@ -71,7 +84,9 @@ fun DonutSmallItem(
         Image(
             painter = painterResource(id = donut.image),
             contentDescription = "${donut.name} image",
-            modifier = Modifier.align(Alignment.TopCenter).size(75.dp)
+            modifier = Modifier
+                .align(Alignment.TopCenter)
+                .size(75.dp)
         )
     }
 }

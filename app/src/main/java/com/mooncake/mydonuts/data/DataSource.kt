@@ -4,7 +4,6 @@ import com.mooncake.mydonuts.R
 import com.mooncake.mydonuts.presntation.screens.home.Donut
 import com.mooncake.mydonuts.presntation.ui.theme.BlueLight
 import com.mooncake.mydonuts.presntation.ui.theme.PinkLight
-import com.mooncake.mydonuts.presntation.ui.theme.PinkMedium
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -37,7 +36,7 @@ class DataSource @Inject constructor() {
                 finalPrice = 16,
                 offer = 20,
                 isFavourite = false,
-                color = PinkMedium
+                color = PinkLight
             ),
             Donut(
                 id = 1,

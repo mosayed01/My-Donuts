@@ -67,6 +67,7 @@ fun DonutOfferItem(
     ) {
         Column(
             Modifier
+                .shadow(5.dp, shape = RoundedCornerShape(20.dp))
                 .size(190.dp, 325.dp)
                 .clip(RoundedCornerShape(20.dp))
                 .background(donut.color)

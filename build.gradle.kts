@@ -3,7 +3,6 @@
 plugins {
     alias(libs.plugins.androidApplication) apply false
     alias(libs.plugins.kotlinAndroid) apply false
-    alias(libs.plugins.hiltAndroid) apply false
-    alias(libs.plugins.ksp) apply false
+    id("com.google.dagger.hilt.android") version "2.44" apply false
 }
 true // Needed to make the Suppress annotation work for the plugins block
