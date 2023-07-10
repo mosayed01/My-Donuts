@@ -9,21 +9,17 @@ import androidx.navigation.navArgument
 import com.mooncake.mydonuts.presntation.navigation.DonutDetailsArgs.Companion.DONUT_ID
 import com.mooncake.mydonuts.presntation.screens.donuts_details.DonutsDetailsScreen
 import javax.inject.Inject
-import javax.inject.Singleton
 
 private const val ROUTE = "DONUT_DETAILS"
-fun NavGraphBuilder.donutsDetails(){
+fun NavGraphBuilder.donutsDetailsRoute(){
     composable(
         route = "$ROUTE/{$DONUT_ID}",
         arguments = listOf(
             navArgument(DONUT_ID){ type = NavType.IntType }
         )
-    ){
-        DonutsDetailsScreen()
-    }
+    ){ DonutsDetailsScreen() }
 }
 
-@Singleton
 class DonutDetailsArgs @Inject constructor(savedStateHandle: SavedStateHandle){
     val donutId: Int = savedStateHandle.get<Int>(DONUT_ID) ?: 0
 

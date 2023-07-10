@@ -3,7 +3,7 @@ package com.mooncake.mydonuts.presntation.ui
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.mooncake.mydonuts.presntation.screens.home.HomeScreen
+import com.mooncake.mydonuts.presntation.navigation.MyDonutsNavGraph
 import com.mooncake.mydonuts.presntation.ui.theme.MyDonutsTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -13,7 +13,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MyDonutsTheme {
-                HomeScreen()
+                MyDonutsNavGraph()
             }
         }
     }

@@ -1,6 +1,5 @@
 package com.mooncake.mydonuts.presntation.screens.home
 
-import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -21,13 +20,13 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.mooncake.mydonuts.R
 import com.mooncake.mydonuts.data.DataSource
+import com.mooncake.mydonuts.presntation.navigation.navigateToDonutDetails
 import com.mooncake.mydonuts.presntation.screens.home.composables.DonutOfferItem
 import com.mooncake.mydonuts.presntation.screens.home.composables.DonutSmallItem
 import com.mooncake.mydonuts.presntation.ui.theme.Black
@@ -40,11 +39,10 @@ import com.mooncake.mydonuts.presntation.ui.theme.WhiteFC
 
 @Composable
 fun HomeScreen(viewModel: HomeViewModel = hiltViewModel()) {
-    val context = LocalContext.current
     val navController = LocalNavController.current
     val state by viewModel.state.collectAsState()
     HomeScreenContent(navigateToDonutsDetails = {
-        Toast.makeText(context, "nav to $it", Toast.LENGTH_SHORT).show()
+        navController.navigateToDonutDetails(it)
     }, state = state, lister = viewModel)
 }
 

@@ -17,6 +17,8 @@ import androidx.compose.ui.unit.dp
 import com.mooncake.mydonuts.R
 import com.mooncake.mydonuts.presntation.composables.ButtonHasText
 import com.mooncake.mydonuts.presntation.composables.MarqueeBackground
+import com.mooncake.mydonuts.presntation.navigation.navigateToHome
+import com.mooncake.mydonuts.presntation.ui.theme.LocalNavController
 import com.mooncake.mydonuts.presntation.ui.theme.LocalSystemUiController
 import com.mooncake.mydonuts.presntation.ui.theme.MyDonutsTheme
 import com.mooncake.mydonuts.presntation.ui.theme.Pink
@@ -26,6 +28,7 @@ import com.mooncake.mydonuts.presntation.ui.theme.PinkMedium
 @Composable
 fun OnboardScreen() {
     LocalSystemUiController.current.isSystemBarsVisible = false
+    val navController = LocalNavController.current
 
     Box(
         modifier = Modifier.fillMaxSize().background(PinkLight)
@@ -50,7 +53,7 @@ fun OnboardScreen() {
             )
             ButtonHasText(
                 text = stringResource(R.string.get_started),
-                onClick = { /*TODO*/ },
+                onClick = { navController.navigateToHome() },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(bottom = 24.dp)

@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -68,8 +67,8 @@ fun DonutsDetailsScreenContent(
             contentDescription = "back",
             tint = Pink,
             modifier = Modifier
-                .clickable { navigateBack() }
                 .padding(start = 16.dp, top = 24.dp)
+                .clickable { navigateBack() }
         )
         Image(
             painter = painterResource(id = state.image), contentDescription = "image",
@@ -79,17 +78,21 @@ fun DonutsDetailsScreenContent(
                 .padding(top = 8.dp),
             contentScale = ContentScale.FillWidth
         )
-        Spacer(modifier = Modifier.weight(1f))
         BottomSheetContent(state, listener)
     }
 }
 
 @Composable
-fun BottomSheetContent(state: DonutDetailsUiState, listener: DonutsDetailsInteractionsListener) {
-    Box(modifier = Modifier.fillMaxSize()) {
+fun BottomSheetContent(
+    state: DonutDetailsUiState,
+    listener: DonutsDetailsInteractionsListener,
+    modifier: Modifier = Modifier
+) {
+    Box(modifier = modifier.fillMaxSize()) {
         Column(
             Modifier
-                .fillMaxWidth()
+                .matchParentSize()
+                .padding(top = 20.dp)
                 .clip(RoundedCornerShape(topStart = 40.dp, topEnd = 40.dp))
                 .background(WhiteFE)
                 .padding(horizontal = 40.dp)
@@ -124,7 +127,8 @@ fun BottomSheetContent(state: DonutDetailsUiState, listener: DonutsDetailsIntera
                     style = MaterialTheme.typography.headlineLarge.copy(fontSize = 32.sp),
                     modifier = Modifier
                         .size(45.dp)
-                        .background(White, RoundedCornerShape(15.dp))
+                        .clip(RoundedCornerShape(15.dp))
+                        .background(White)
                         .clickable { listener.onClickMinus() },
                     textAlign = TextAlign.Center
                 )
@@ -133,7 +137,8 @@ fun BottomSheetContent(state: DonutDetailsUiState, listener: DonutsDetailsIntera
                     style = MaterialTheme.typography.titleLarge.copy(fontSize = 22.sp),
                     modifier = Modifier
                         .size(45.dp)
-                        .background(White, RoundedCornerShape(15.dp))
+                        .clip(RoundedCornerShape(15.dp))
+                        .background(White)
                         .padding(top = 8.dp),
                     textAlign = TextAlign.Center
                 )
@@ -145,7 +150,8 @@ fun BottomSheetContent(state: DonutDetailsUiState, listener: DonutsDetailsIntera
                     ),
                     modifier = Modifier
                         .size(45.dp)
-                        .background(Black, RoundedCornerShape(15.dp))
+                        .clip(RoundedCornerShape(15.dp))
+                        .background(Black)
                         .clickable { listener.onClickPlus() },
                     textAlign = TextAlign.Center
                 )
