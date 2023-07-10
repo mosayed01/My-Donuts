@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -55,48 +56,53 @@ fun HomeScreenContent(
     lister: HomeInteractionsLister,
     modifier: Modifier = Modifier,
 ) {
-    Column(
-        modifier = modifier
-            .fillMaxSize()
-            .background(WhiteFC)
+    LazyColumn(
+        modifier = modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)
     ) {
-        Header(
-            Modifier.padding(horizontal = 16.dp).padding(top = 16.dp))
-        Text(
-            text = "Today Offers",
-            style = MaterialTheme.typography.titleLarge.copy(color = Black),
-            modifier = Modifier.padding(start = 16.dp, top = 32.dp)
-        )
-        LazyRow(
-            Modifier
-                .fillMaxWidth()
-                .padding(top = 16.dp),
-            contentPadding = PaddingValues(horizontal = 16.dp),
-            horizontalArrangement = Arrangement.spacedBy(8.dp)
-        ) {
-            items(state.todayOffers) { donut ->
-                DonutOfferItem(
-                    onClick = { navigateToDonutsDetails(it) },
-                    onClickFavourite = lister::onClickFavourite,
-                    donut = donut
-                )
+        item {
+            Header(
+                Modifier
+                    .padding(horizontal = 16.dp)
+                    .padding(top = 16.dp))
+        }
+        item {
+            Text(
+                text = "Today Offers",
+                style = MaterialTheme.typography.titleLarge.copy(color = Black),
+                modifier = Modifier.padding(start = 16.dp, top = 32.dp)
+            )
+            LazyRow(
+                Modifier
+                    .fillMaxWidth()
+                    .padding(top = 16.dp),
+                contentPadding = PaddingValues(horizontal = 16.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                items(state.todayOffers) { donut ->
+                    DonutOfferItem(
+                        onClick = { navigateToDonutsDetails(it) },
+                        onClickFavourite = lister::onClickFavourite,
+                        donut = donut
+                    )
+                }
             }
         }
-
-        Text(
-            text = "Donuts",
-            style = MaterialTheme.typography.titleLarge.copy(color = Black),
-            modifier = Modifier.padding(start = 16.dp, top = 32.dp)
-        )
-        LazyRow(
-            Modifier
-                .fillMaxWidth()
-                .padding(top = 16.dp),
-            contentPadding = PaddingValues(horizontal = 16.dp),
-            horizontalArrangement = Arrangement.spacedBy(20.dp)
-        ) {
-            items(state.donuts) { donut ->
-                DonutSmallItem(onClick = { navigateToDonutsDetails(it) }, donut = donut)
+        item {
+            Text(
+                text = "Donuts",
+                style = MaterialTheme.typography.titleLarge.copy(color = Black),
+                modifier = Modifier.padding(start = 16.dp, top = 32.dp)
+            )
+            LazyRow(
+                Modifier
+                    .fillMaxWidth()
+                    .padding(top = 16.dp),
+                contentPadding = PaddingValues(horizontal = 16.dp),
+                horizontalArrangement = Arrangement.spacedBy(20.dp)
+            ) {
+                items(state.donuts) { donut ->
+                    DonutSmallItem(onClick = { navigateToDonutsDetails(it) }, donut = donut)
+                }
             }
         }
     }
