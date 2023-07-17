@@ -1,6 +1,7 @@
 package com.mooncake.mydonuts.presntation.navigation
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.tween
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.layout.padding
@@ -26,8 +27,8 @@ fun MyDonutsNavGraph() {
     Scaffold(bottomBar = {
         AnimatedVisibility(
             visible = !(currentRoute == START_DESTINATION_ROUTE || currentRoute == "DONUT_DETAILS/{donut_id}"),
-            enter = slideInVertically(initialOffsetY = { it }),
-            exit = slideOutVertically(targetOffsetY = { it }),
+            enter = slideInVertically(initialOffsetY = { it }, animationSpec = tween(300)),
+            exit = slideOutVertically(targetOffsetY = { it }, animationSpec = tween(300)),
         ) { CustomBottomBar() }
     }) {
         NavHost(
