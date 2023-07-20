@@ -120,7 +120,7 @@ fun BottomSheetContent(
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
-                modifier = Modifier.padding(top = 19.dp)
+                modifier = Modifier.padding(top = 16.dp)
             ) {
                 Text(
                     text = "-",
@@ -161,7 +161,7 @@ fun BottomSheetContent(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 30.dp, bottom = 16.dp)
+                    .padding(top = 24.dp, bottom = 16.dp)
             ) {
                 Text(text = "£${state.totalPrice}", style = MaterialTheme.typography.headlineLarge)
                 ButtonHasText(

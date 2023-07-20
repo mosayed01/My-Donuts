@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -27,11 +28,15 @@ import com.mooncake.mydonuts.presntation.ui.theme.PinkMedium
 
 @Composable
 fun OnboardScreen() {
-    LocalSystemUiController.current.isSystemBarsVisible = false
+    val systemUiController = LocalSystemUiController.current
     val navController = LocalNavController.current
-
+    SideEffect {
+        systemUiController.isSystemBarsVisible = false
+    }
     Box(
-        modifier = Modifier.fillMaxSize().background(PinkLight)
+        modifier = Modifier
+            .fillMaxSize()
+            .background(PinkLight)
     ) {
         MarqueeBackground()
         Column(
